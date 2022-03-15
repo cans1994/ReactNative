@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, View, TextInput, Button, StyleSheet} from 'react-native'
 import films from '../Helpers/filmsData'
-import FilmItem from '../Helpers/FilmItem'
+import FilmItem from './FilmItem'
 
 
 
