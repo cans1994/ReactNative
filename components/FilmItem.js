@@ -7,9 +7,10 @@ class FilmItem extends React.Component {
     render() {
         const film = this.props.film
         console.log(this.props.film.title)
-        return <View>
+        return (<View>
             <Text>{film.title}</Text>
         </View>
+        )
  }
 }
 

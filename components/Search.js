@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, TextInput, Button, StyleSheet} from 'react-native'
-import { FlatList, Text } from 'react-native'
+import { FlatList, View, TextInput, Button, StyleSheet} from 'react-native'
 import films from '../Helpers/filmsData'
 import FilmItem from '../Helpers/FilmItem'
 
