@@ -1,5 +1,7 @@
 import React from 'react'
 import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { FlatList, Text } from 'react-native'
+
 
 
 const styles = StyleSheet.create({
@@ -11,7 +13,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     height: 50,
-    borderColor: '#000000',
+    borderColor: 'pink',
     borderWidth: 1,
     paddingLeft: 5,
   },
@@ -29,20 +31,15 @@ const styles = StyleSheet.create({
 class Search extends React.Component {
     render() {
         return (
-        <View style={{ marginTop: 20 }}>
-                <TextInput
-  style={{
-    marginLeft: 5,
-    marginRight: 5,
-    height: 50,
-    borderColor: '#000000',
-    borderWidth: 1,
-    paddingLeft: 5,
-  }}
-  placeholder="Titre du film"
+       <View style={styles.main_container}>
+        <TextInput style={styles.textinput} placeholder="Titre du film" />
+            <Button title="Rechercher" onPress={() => { }} />
+            <FlatList
+  data={[{ key: 'a' }, { key: 'b' }]}
+  renderItem={({ item }) => <Text>{item.key}</Text>}
 />
-                <Button title='Rechercher' onPress={() => { }} />
-            </View>
+          </View>
+
         )
     }
 }
