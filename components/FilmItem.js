@@ -12,21 +12,31 @@ class FilmItem extends React.Component {
         console.log('test:' + this.props.film.title)
         return (
             <View>
-                <JSONPretty data={film}></JSONPretty>
-            <Text>{film.title}</Text>
+                <View>
+                    <JSONPretty data={film}></JSONPretty>
+                </View>
+                <View style={styles.film_main_container}>
+                <Text>{film.title}</Text>
+                <Text>{film.vote_average}</Text>
+                <Text>{film.overview}</Text>
+                <Text>{film.release_date}</Text>
                 <Image style={styles.image}
                     source={{
                         uri: 'https://reactnative.dev/img/tiny_logo.png',
                     }} />
-        </View>
+                </View>
+                </View>
         )
  }
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
+    film_main_container: {
+        flexDirection: 'row',
+    },
     image: {
-        width: 20,
-        height: 20,
+        width: 120,
+        height: 180,
 
     },
 })
