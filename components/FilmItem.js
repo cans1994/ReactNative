@@ -25,7 +25,7 @@ class FilmItem extends React.Component {
               <Text>{film.vote_average}</Text>
             </View>
             <Text style={styles.OverviewFilm}>{film.overview}</Text>
-                    <Text style={styles.Release_date_film}>{film.release_date}</Text>
+                    <Text style={styles.Release_date_film}></Text>
                     {dayjs(film.release_date). format ('DD/MM/YYYY')}
           </View>
         </View>
