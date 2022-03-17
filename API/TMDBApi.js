@@ -18,6 +18,14 @@ const getFilmsFromApiWithSearchedText = async (text) => {
 
 }
 
+const getImageFromApi = (name) => {
+    if (name === null || name === undefined)
+        return require('../assets/filmVide.jpg')
+    // 'https://image.tmdb.org/t/p/original' + name
+  // 'https://image.tmdb.org/t/p/w300' + name
+  return { uri: 'https://image.tmdb.org/t/p/w300' + name }
+}
+
 
 
 export default getFilmsFromApiWithSearchedText
