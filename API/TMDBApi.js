@@ -1,19 +1,20 @@
 // API/TMDBApi.js
-import axios from 'axios';
-import { API_TOKEN } from '@env'
+import axios from 'axios'
+//import { API_TOKEN } from '@env'
+import { getApiToken } from '../App'
 
 
-const getFilmsFromApiWithSearchedText = async (text) => {
-    const url = 'https://api.themoviedb.org/3/search/movie?api_key=API_TOKEN' +
-        API_TOKEN +
-        '&language=fr&query=' +
-    text
-    console.log(url)
-    const response = await axios.get(url)
-  console.log('--getFilmsFromApiWithSearchedText--')
-  console.log(response.data)
-  console.log('--fin getFilmsFromApiWithSearchedText--')
-  return response.data
+async function getFilmsFromApiWithSearchedText(text) {
+  const url = 'https://api.themoviedb.org/3/search/movie?api_key=' +
+    getApiToken() +
+    '&language=fr&query=' +
+    text;
+  console.log(url);
+  const response = await axios.get(url);
+  console.log('--getFilmsFromApiWithSearchedText--');
+  console.log(response.data);
+  console.log('--fin getFilmsFromApiWithSearchedText--');
+  return response.data;
 }
 
 const getImageFromApi = (name) => {

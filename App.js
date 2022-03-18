@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react'
 import Search from './Components/Search'
+import { API_TOKEN } from '@env'
 
 export default class App extends React.Component {
   render() {
@@ -27,3 +28,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const getApiToken = () => {
+  return API_TOKEN
+}
+
+export { getApiToken }
