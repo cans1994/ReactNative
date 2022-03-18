@@ -36,6 +36,10 @@ const sleep = (milliseconds) => {
   //  await slowNetwork()
 //}
 
+//const getFilmsFromApiWithSearchedText = async (text, page) => {
+//  const url = /* ... */ + '&language=fr&query=' + text + "&page=" + page
+
+//}
 
 
 export { getFilmsFromApiWithSearchedText, getImageFromApi }
