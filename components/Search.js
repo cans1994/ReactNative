@@ -6,30 +6,6 @@ import { getFilmsFromApiWithSearchedText } from "../API/TMDBApi";
 import { ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native";
 
-const styles = StyleSheet.create({
-  main_container: {
-    marginTop: 20,
-    flex: 1,
-  },
-  textinput: {
-    marginLeft: 5,
-    marginRight: 5,
-    height: 50,
-    borderColor: "pink",
-    borderWidth: 3,
-    paddingLeft: 5,
-  },
-  loading_container: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 100,
-    bottom: 0,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
-
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -98,7 +74,12 @@ class Search extends React.Component {
             }}
             data={this.state.films}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <FilmItem film={item} />}
+            renderItem={({ item }) => (
+              <FilmItem
+                film={item}
+                displayDetailForFilm={this.displayDetailForFilm}
+              />
+            )}
           />
         </View>
       </SafeAreaView>
@@ -140,6 +121,33 @@ class Search extends React.Component {
       );
     }
   }
+  displayDetailForFilm = (idFilm) => {
+    console.log("film.id=" + idFilm);
+  };
 }
+
+const styles = StyleSheet.create({
+  main_container: {
+    marginTop: 20,
+    flex: 1,
+  },
+  textinput: {
+    marginLeft: 5,
+    marginRight: 5,
+    height: 50,
+    borderColor: "pink",
+    borderWidth: 3,
+    paddingLeft: 5,
+  },
+  loading_container: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 100,
+    bottom: 0,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
 
 export default Search;
