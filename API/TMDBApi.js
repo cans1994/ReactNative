@@ -1,12 +1,12 @@
 // API/TMDBApi.js
 import axios from 'axios'
-//import { API_TOKEN } from '@env'
-import { getApiToken } from '../App'
+import { API_TOKEN } from '@env'
+//import { getApiToken } from '../App'
 
 
 async function getFilmsFromApiWithSearchedText(text) {
   const url = 'https://api.themoviedb.org/3/search/movie?api_key=' +
-    getApiToken() +
+    API_TOKEN +
     '&language=fr&query=' +
     text;
   console.log(url);
