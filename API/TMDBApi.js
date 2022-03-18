@@ -1,21 +1,19 @@
 // API/TMDBApi.js
 import axios from 'axios';
 import { API_TOKEN } from '@env'
-import getFilmsFromApiWithSearchedText from '../API/TMDBApi'
 
 
 const getFilmsFromApiWithSearchedText = async (text) => {
     const url = 'https://api.themoviedb.org/3/search/movie?api_key=API_TOKEN' +
         API_TOKEN +
         '&language=fr&query=' +
-        text
+    text
+    console.log(url)
     const response = await axios.get(url)
   console.log('--getFilmsFromApiWithSearchedText--')
-  console.log(url)
   console.log(response.data)
   console.log('--fin getFilmsFromApiWithSearchedText--')
   return response.data
-
 }
 
 const getImageFromApi = (name) => {
@@ -29,9 +27,9 @@ const getImageFromApi = (name) => {
 const sleep = (milliseconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
-async function slowNetwork() {
-  await sleep(5000)
-}
+//async function slowNetwork() {
+ // await sleep(5000)
+//}
 
 //const getFilmsFromApiWithSearchedText = async (text) => {
   //  await slowNetwork()
@@ -39,4 +37,4 @@ async function slowNetwork() {
 
 
 
-export default getFilmsFromApiWithSearchedText
+export { getFilmsFromApiWithSearchedText, getImageFromApi }

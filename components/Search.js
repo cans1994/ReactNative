@@ -2,7 +2,7 @@ import React from 'react'
 import { FlatList, View, TextInput, Button, StyleSheet} from 'react-native'
 import films from '../Helpers/filmsData'
 import FilmItem from './FilmItem'
-//import getFilmsFromApiWithSearchedText from '../API/TMDBApi'
+import { getFilmsFromApiWithSearchedText } from '../API/TMDBApi'
 import { ActivityIndicator } from 'react-native'
 
 
@@ -32,13 +32,14 @@ const styles = StyleSheet.create({
   },
 })
 
+
 class Search extends React.Component {
     render() {
         return (
        <View style={styles.main_container}>
-        <TextInput style={styles.textinput} placeholder="Titre du film" />
-            <Button title="Rechercher" onPress={() => { }} />
-            <FlatList data={films}
+        <TextInput style={styles.textinput} placeholder="Titre du film" onChangeText={(text) => this._searchTextInputChanged(text)}/>
+            <Button title="Rechercher" onPress={() => this._loadFilms() }/>
+            <FlatList data={this.state.films}
               keyExtractor={(item) => item.id.toString()}
               renderItem={({ item }) => <FilmItem film={item} />} />
 
@@ -49,7 +50,7 @@ class Search extends React.Component {
     super(props)
     this.searchedText = ''
     this.state = {
-      films: [], // ceci va devenir un state
+      films: [], height: 0, // ceci va devenir un state
       isLoading: false // Par défaut à false car il n'y a pas de chargement tant qu'on ne lance pas de recherche
     }
     this.page = 0
@@ -63,7 +64,8 @@ class Search extends React.Component {
 
  //   isLoading: True puis appel API puis lorsque l'API a répondu isLoading: False
   _loadFilms() {
-      if (this.searchedText.length == 0 || this.state.isLoading) return
+    if (this.searchedText.length == 0 || this.state.isLoading) return
+        alert('loadfilms')
     this.setState({ isLoading: true })
     getFilmsFromApiWithSearchedText(this.searchedText, this.page + 1).then((data) => {
           this.page = data.page
@@ -90,6 +92,9 @@ class Search extends React.Component {
     }
   }
 }
+
+
+
 
 
 
