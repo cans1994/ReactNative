@@ -23,8 +23,19 @@ const getImageFromApi = (name) => {
         return require('../assets/filmVide.jpg')
     // 'https://image.tmdb.org/t/p/original' + name
   // 'https://image.tmdb.org/t/p/w300' + name
-  return { uri: 'https://image.tmdb.org/t/p/w300' + name }
+    return { uri: 'https://image.tmdb.org/t/p/w300' + name }
 }
+
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+async function slowNetwork() {
+  await sleep(5000)
+}
+
+//const getFilmsFromApiWithSearchedText = async (text) => {
+  //  await slowNetwork()
+//}
 
 
 
