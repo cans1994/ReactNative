@@ -41,5 +41,19 @@ const sleep = (milliseconds) => {
 
 //}
 
+const getFilmDetailFromApi = async (id) => {
+  const url =
+    "https://api.themoviedb.org/3/movie/" +
+    id +
+    "?api_key=" +
+    API_TOKEN +
+    "&language=fr";
+  const response = await axios.get(url);
+  return response.data;
+};
+
+
+
+
 
 export { getFilmsFromApiWithSearchedText, getImageFromApi }
